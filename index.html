@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WWN Character Creator</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Worlds Without Number - Character Creator</h1>
+  <p>Not official</p>
+  <div>
+
+    <h2>Character</h2>
+    <label for="characterName" class="characterName">Name</label>
+    <input type="text" id="characterName" name="characterName" placeholder="Character Name"/>
+    
+    <h2>Attributes</h2>
+    <button id="attributeRollButton">Roll</button>
+    <button id="attributeRollButton">Roll</button>
+
+    <input type="checkbox" id="attributeAllowRearrange" name="attributeAllowRearrange"></radio>
+    <label for="attributeAllowRearrange">Allow rearrangement</label>
+
+    <div id="attributeRollsCounter">0</div>
+    <div id="attributeRolled">None yet</div>
+    <div id="attributeModifiers">None yet</div>
+
+    <div id="chosenAttributeGrid">
+      <div id="chosenAttributeGridHeader">
+        <div>Attribute</div>
+        <div>Value</div>
+        <div>Modifier</div>
+      </div>
+      <div id="chosenAttributeGridBody">
+        <div>STR</div>
+        <div id="chosenAttributeStrengthValue">0</div>
+        <div id="chosenAttributeStrengthModifier">0</div>
+        <div>DEX</div>
+        <div id="chosenAttributeDexterityValue">0</div>
+        <div id="chosenAttributeDexterityModifier">0</div>
+        <div>CON</div>
+        <div id="chosenAttributeConstitutionValue">0</div>
+        <div id="chosenAttributeConstitutionModifier">0</div>
+        <div>INT</div>
+        <div id="chosenAttributeIntelligenceValue">0</div>
+        <div id="chosenAttributeIntelligenceModifier">0</div>
+        <div>WIS</div>
+        <div id="chosenAttributeWisdomValue">0</div>
+        <div id="chosenAttributeWisdomModifier">0</div>
+        <div>CHA</div>
+        <div id="chosenAttributeCharismaValue">0</div>
+        <div id="chosenAttributeCharismaModifier">0</div>
+      </div>
+    </div>
+
+    <h2>Background</h2>
+  </div>
+</body>
+</html>
