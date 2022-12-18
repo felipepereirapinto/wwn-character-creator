@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/felipepereirapinto/wwn-character-creator/issues"
   },
-  "homepage": "https://github.com/felipepereirapinto/wwn-character-creator#readme"
+  "homepage": "https://github.com/felipepereirapinto/wwn-character-creator#readme",
+  "devDependencies": {
+    "eslint": "^8.30.0"
+  }
 }
