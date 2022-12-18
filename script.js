@@ -1,124 +1,58 @@
+// Functions
+function handleAttributeRoll() {
 
-
-const main = () => {
-  console.log('Initializing script.js');
-
-  const roll = (query = 'd20') => {
-    /* Regex for rolling rpg dice: any number optional, 'd', any number > 1 */
-    regex = '^(\\d*)d(\\d+)$';
-    const match = query.match(regex);
-    
-    if (match) {
-      const count = match[1] || 1;
-      const sides = match[2];
-
-      let total = 0;
-      for (let i = 0; i < count; i++) {
-        total += Math.floor(Math.random() * sides) + 1;
-      }
-
-      return total;
+  function roll3d6() {
+    let total = 0;
+    for (let i = 0; i < count; i++) {
+      total += Math.floor(Math.random() * sides) + 1;
     }
-
-    return null;
+    return total
   }
 
-  const rollAttributes = () => {
-    const attributes = [
-      roll('3d6'),
-      roll('3d6'),
-      roll('3d6'),
-      roll('3d6'),
-      roll('3d6'),
-      roll('3d6'),
-    ];
-    
-    return attributes;
+  function getModifier(attribute) {
+    if (attribute === 3) return -2;
+    else if (attribute >= 4 && attribute <= 7) return -1;
+    else if (attribute >= 8 && attribute <= 13) return 0;
+    else if (attribute >= 14 && attribute <= 17) return 1;
+    else return 2;
   }
 
-  const getAttributeModifiers = (attributes) => {
-    let modifiers = [];
+  // Roll 3d6 for each attribute
+  const attributes = [
+    roll3d6(), // Strength
+    roll3d6(), // Dexterity
+    roll3d6(), // Constitution
+    roll3d6(), // Intelligence
+    roll3d6(), // Wisdom
+    roll3d6(), // Charismas
+  ];
 
-    for (attribute of attributes) {
-      if (attribute === 3) modifiers.push(-2);
-      else if (attribute >= 4 && attribute <= 7) modifiers.push(-1);
-      else if (attribute >= 8 && attribute <= 13) modifiers.push(0);
-      else if (attribute >= 14 && attribute <= 17) modifiers.push(1);
-      else if (attribute === 18) modifiers.push(2);
-      else modifiers.push(null);
-    }
+  /* Get attribute values for the rolled elements */
+  document.getElementById('rolledStrengthValue').innerHTML = attributes[0];
+  document.getElementById('rolledDexterityValue').innerHTML = attributes[1];
+  document.getElementById('rolledConstitutionValue').innerHTML = attributes[2];
+  document.getElementById('rolledIntelligenceValue').innerHTML = attributes[3];
+  document.getElementById('rolledWisdomValue').innerHTML = attributes[4];
+  document.getElementById('rolledCharismaValue').innerHTML = attributes[5];
 
-    return modifiers;
-  }
-
-  const setChosenAttribute = (attributes) => {
-    data.attributes.chosen = attributes;
-  }
-
-  const setAttributeTo14 = (index) => {
-    const attributes = data.attributes.chosen;
-    attributes[index] = 14;
-    setChosenAttribute(attributes);
-    console.log('data', data);
-  }
-
-  const handleAttributeRoll = () => {
-    const rolledAttributes = rollAttributes();
-    const attributeModifiers = getAttributeModifiers(rolledAttributes);
-    const rolls = data.attributes.rolls;
-
-    data.attributes.rolled = rolledAttributes;
-    data.attributes.modifiers = attributeModifiers;
-    data.attributes.rolls++;
-    
-    data.attributes.chosen = rolledAttributes;
-    setChosenAttribute(rolledAttributes);
-
-
-    data.elements.attributeRollsCounter.innerHTML = rolls;
-    data.elements.attributeRolled.innerHTML = rolledAttributes.join(', ');
-    data.elements.attributeModifiers.innerHTML = attributeModifiers.join(', ');
-  }
-
-  const handleNameChange = (event) => {
-    const name = event.target.value;
-    data.info.name = name;
-    data.elements.characterName.innerHTML = name;
-  }
-
-  // Initialize data
-  const data = {
-    attributes: {
-      chosen: [],
-      rolled: [],
-      rolls: 0,
-      modifiers: [],
-      standard: [14, 12, 11, 10, 9, 7],
-      setToFourteen: null,
-    },
-    info: {
-      name: '',
-      goals: '',
-      background: '',
-      class: '',
-    },
-    elements: {
-      // Get html elements
-
-      characterName: document.getElementById('characterName'),
-      attributeRollButton: document.getElementById('attributeRollButton'),
-      attributeRollsCounter: document.getElementById('attributeRollsCounter'),
-      attributeRolled: document.getElementById('attributeRolled'),
-      attributeModifiers: document.getElementById('attributeModifiers'),
-
-    }
-  }
-
-  // Set event listeners
-  data.elements.characterName.onchange = handleNameChange;
-  data.elements.attributeRollButton.onclick = handleAttributeRoll;
-
-  console.log('data', data)
+  // Get attribute modifiers for the rolled elements
+  document.getElementById('rolledStrengthModifier').innerHTML = getModifier(attributes[0]);
+  document.getElementById('rolledDexterityModifier').innerHTML = getModifier(attributes[1]);
+  document.getElementById('rolledConstitutionModifier').innerHTML = getModifier(attributes[2]);
+  document.getElementById('rolledIntelligenceModifier').innerHTML = getModifier(attributes[3]);
+  document.getElementById('rolledWisdomModifier').innerHTML = getModifier(attributes[4]);
+  document.getElementById('rolledCharismaModifier').innerHTML = getModifier(attributes[5]);
 }
 
-main()
+function setAttributeTo14(attribute) {
+  const valueElement = document.getElementById(`attribute${attribute}Value`);
+  const modifierElement = document.getElementById(`attribute${attribute}Modifier`);
+  valueElement.innerHTML = 14;
+  modifierElement.innerHTML = '+1';
+}
+
+
+
+// Export functions to html using window object
+window.handleAttributeRoll = handleAttributeRoll;
+

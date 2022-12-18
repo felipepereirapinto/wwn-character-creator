@@ -1,61 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WWN Character Creator</title>
-  <script src="script.js" defer></script>
+
+  <!-- The script has modules exported -->
+  <script type="module" src="script.js" defer></script>
+  <!-- <script src="script.js" defer></script> -->
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Worlds Without Number - Character Creator</h1>
-  <p>Not official</p>
-  <div>
+  <div class="container">
 
-    <h2>Character</h2>
-    <label for="characterName" class="characterName">Name</label>
-    <input type="text" id="characterName" name="characterName" placeholder="Character Name"/>
-    
-    <h2>Attributes</h2>
-    <button id="attributeRollButton">Roll</button>
-    <button id="attributeRollButton">Roll</button>
+    <!-- Header -->
+    <header>
+      <h1 class="title">WWN Character Creator</h1>
+    </header>
 
-    <input type="checkbox" id="attributeAllowRearrange" name="attributeAllowRearrange"></radio>
-    <label for="attributeAllowRearrange">Allow rearrangement</label>
+    <!-- Step 1 - Attributes -->
+    <!-- Roll six attributes in order, set one to 14 -->
+    <!-- Or assign 14, 12, 11, 10, 9, 7 -->
+    <section class="attributeSection">
+      <h2 class="subtitle">Attributes</h2>
 
-    <div id="attributeRollsCounter">0</div>
-    <div id="attributeRolled">None yet</div>
-    <div id="attributeModifiers">None yet</div>
+      <p class="text">
+        Roll your six attributes in order or assign them from an array, using Strength, Dexterity, Constitution,
+        Intelligence, Wisdom, and Charisma. Attributes reflect the basic potential of your hero. Roll 3d6 six times and
+        assign them in order, or use an array of
+        <strong>14, 12, 11, 10, 9, 7</strong>
+        assigned as you wish. If you randomly roll your
+        scores you may then pick one attribute to change to a score of 14.
+      </p>
 
-    <div id="chosenAttributeGrid">
-      <div id="chosenAttributeGridHeader">
-        <div>Attribute</div>
-        <div>Value</div>
-        <div>Modifier</div>
+      <div class="buttonsContainer">
+        <button onclick="handleAttributeRoll()" id="rollAttributesButton" class="button">Roll</button>
+        <button onclick="handleAttributeAssign()" id="assignAttributesButton" class="button">Assign</button>
       </div>
-      <div id="chosenAttributeGridBody">
-        <div>STR</div>
-        <div id="chosenAttributeStrengthValue">0</div>
-        <div id="chosenAttributeStrengthModifier">0</div>
-        <div>DEX</div>
-        <div id="chosenAttributeDexterityValue">0</div>
-        <div id="chosenAttributeDexterityModifier">0</div>
-        <div>CON</div>
-        <div id="chosenAttributeConstitutionValue">0</div>
-        <div id="chosenAttributeConstitutionModifier">0</div>
-        <div>INT</div>
-        <div id="chosenAttributeIntelligenceValue">0</div>
-        <div id="chosenAttributeIntelligenceModifier">0</div>
-        <div>WIS</div>
-        <div id="chosenAttributeWisdomValue">0</div>
-        <div id="chosenAttributeWisdomModifier">0</div>
-        <div>CHA</div>
-        <div id="chosenAttributeCharismaValue">0</div>
-        <div id="chosenAttributeCharismaModifier">0</div>
-      </div>
-    </div>
 
-    <h2>Background</h2>
+      <!-- Step 2 - Attribute modifiers -->
+
+      <!-- Table for rolled attributes -->
+      <table id="rolledAttributesTable" class="">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Score</th>
+            <th>Modifier</th>
+            <th>Set to 14</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>STR</td>
+            <td id="rolledStrengthValue" data-previous=""></td>
+            <td id="rolledStrengthModifier"></td>
+            <td onclick="handleAttributeAssign('Strengh')" class="setAttributeTo14">
+              <input type="radio" name="attributeTo14" id="attributeStrengthTo14" />
+            </td>
+          </tr>
+          <tr>
+            <td>DEX</td>
+            <td id="rolledDexterityValue" data-previous=""></td>
+            <td id="rolledDexterityModifier"></td>
+            <td onclick="handleAttributeAssign('Dexterity')" class="setAttributeTo14">
+              <input type="radio" name="attributeTo14" id="attributeDexterityTo14" />
+            </td>
+          </tr>
+          <tr>
+            <td>CON</td>
+            <td id="rolledConstitutionValue" data-previous=""></td>
+            <td id="rolledConstitutionModifier"></td>
+            <td onclick="handleAttributeAssign('Constitution')" class="setAttributeTo14">
+              <input type="radio" name="attributeTo14" id="attributeConstitutionTo14" />
+            </td>
+          </tr>
+          <tr>
+            <td>INT</td>
+            <td id="rolledIntelligenceValue" data-previous=""></td>
+            <td id="rolledIntelligenceModifier"></td>
+            <td onclick="handleAttributeAssign('Intelligence')" class="setAttributeTo14">
+              <input type="radio" name="attributeTo14" id="attributeIntelligenceTo14" />
+            </td>
+          </tr>
+          <tr>
+            <td>WIS</td>
+            <td id="rolledWisdomValue" data-previous=""></td>
+            <td id="rolledWisdomModifier"></td>
+            <td onclick="handleAttributeAssign('Wisdom')" class="setAttributeTo14">
+              <input type="radio" name="attributeTo14" id="attributeWisdomTo14" />
+            </td>
+          </tr>
+          <tr>
+            <td>CHA</td>
+            <td id="rolledCharismaValue" data-previous=""></td>
+            <td id="rolledCharismaModifier"></td>
+            <td onclick="handleAttributeAssign('Charisma')" class="setAttributeTo14">
+              <input type="radio" name="attributeTo14" id="attributeCharismaTo14" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Table for assigned attributes -->
+      <table id="assignedAttributesTable" class="active">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Score</th>
+            <th>Modifier</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Inputs can only be in (14, 12, 11, 10, 9, 7) with no repetitions -->
+          <tr id="assignedStrength">
+            <td>STR</td>
+            <td class="assignedAttributeValue">
+              <select name="assignedAttribute" id="assignedStrength">
+                <!-- option with a - -->
+                <option value="-">-</option>
+                <option value="14">14</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="7">7</option>
+              </select>
+            </td>
+            <td class="attributeModifier">-</td>
+          </tr>
+          <tr id="assignedDexterity">
+            <td>DEX</td>
+            <td class="assignedAttributeValue">
+              <select name="assignedAttribute" id="assignedDexterity">
+                <option value="14">14</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="7">7</option>
+              </select>
+            </td>
+            <td class="attributeModifier">-</td>
+          </tr>
+          <tr id="assignedConstitution">
+            <td>CON</td>
+            <td class="assignedAttributeValue">
+              <select name="assignedAttribute" id="assignedConstitution">
+                <option value="14">14</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="7">7</option>
+              </select>
+            </td>
+            <td class="attributeModifier">-</td>
+          </tr>
+          <tr id="assignedIntelligence">
+            <td>INT</td>
+            <td class="assignedAttributeValue">
+              <select name="assignedAttribute" id="assignedIntelligence">
+                <option value="14">14</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="7">7</option>
+              </select>
+            </td>
+            <td class="attributeModifier">-</td>
+          </tr>
+          <tr id="assignedWisdom">
+            <td>WIS</td>
+            <td class="assignedAttributeValue">
+              <select name="assignedAttribute" id="assignedWisdom">
+                <option value="14">14</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="7">7</option>
+              </select>
+            </td>
+            <td class="attributeModifier">-</td>
+          </tr>
+          <tr id="assignedCharisma">
+            <td>CHA</td>
+            <td class="assignedAttributeValue">
+              <select name="assignedAttribute" id="assignedCharisma">
+                <option value="14">14</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="7">7</option>
+              </select>
+            </td>
+            <td class="attributeModifier">-</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
   </div>
 </body>
+
 </html>
