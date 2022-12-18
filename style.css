@@ -1,0 +1,200 @@
+/* Dark theme variables inspired by discord */
+/* Make color variables with 5 colors and 1 shade each for the whole application */
+:root {
+  --color-primary: #7289da;
+  --color-secondary: #99aab5;
+  --color-success: #43b581;
+  --color-danger: #f04747;
+  --color-background: #2c2f33;
+  --color-text: #ffffff;
+}
+
+
+/* Reset document and html tags native styles */
+/* Make it dark themed with a modern font */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  font: inherit;
+  vertical-align: baseline;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Reset all elements native styles */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-rendering: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+}
+
+/* Container */
+.container {
+  width: calc(100vw - 10rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 1rem 0;
+  margin: 2rem 0;
+}
+
+/* Title */
+h1.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Section */
+section {
+  padding: 1rem 0;
+}
+
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Text */
+.text {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+
+/* Buttons */
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 1rem 0;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  min-width: 100px;
+}
+
+.button:hover {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+.button:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+
+/* Only one attribute table will appear at a time */
+/* Tables */
+table {
+  display: none;
+
+  /* Make it responsive */
+  /* width: 100%; */
+  /* max-width: 400px; */
+  /* max-width: calc(100vw - 2rem); */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  /* Make it look like a table */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Make the table visible */
+table.active {
+  display: table;
+}
+
+/* Table header */
+thead {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+/* Table header cell */
+thead th {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--color-text);
+  white-space: nowrap;
+  width: 50px;
+  text-align: center;
+}
+
+/* First table header cell */
+thead th:first-of-type {
+  width: 100px;
+  text-align: left;
+}
+
+/* Table body */
+tbody {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Table body row */
+tbody tr {
+  border-bottom: 1px solid var(--color-primary);
+}
+
+/* Table body cell */
+tbody td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--color-text);
+  white-space: nowrap;
+  /* width: 100%; */
+  /* min-width: 60px; */
+}
