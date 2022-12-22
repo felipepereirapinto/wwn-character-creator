@@ -108,7 +108,7 @@
       </table>
 
       <!-- Table for assigned attributes -->
-      <table id="assignedAttributesTable" class="active">
+      <table id="assignedAttributesTable" class="active" onchange="(event) => console.log(event)">
         <thead>
           <tr>
             <th>Attribute</th>
@@ -123,7 +123,6 @@
             <td>STR</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedStrength">
-                <!-- option with a - -->
                 <option value="-">-</option>
                 <option value="14">14</option>
                 <option value="12">12</option>
@@ -139,6 +138,7 @@
             <td>DEX</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedDexterity">
+                <option value="-">-</option>
                 <option value="14">14</option>
                 <option value="12">12</option>
                 <option value="11">11</option>
@@ -153,6 +153,7 @@
             <td>CON</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedConstitution">
+                <option value="-">-</option>
                 <option value="14">14</option>
                 <option value="12">12</option>
                 <option value="11">11</option>
@@ -167,6 +168,7 @@
             <td>INT</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedIntelligence">
+                <option value="-">-</option>
                 <option value="14">14</option>
                 <option value="12">12</option>
                 <option value="11">11</option>
@@ -181,6 +183,7 @@
             <td>WIS</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedWisdom">
+                <option value="-">-</option>
                 <option value="14">14</option>
                 <option value="12">12</option>
                 <option value="11">11</option>
@@ -195,6 +198,7 @@
             <td>CHA</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedCharisma">
+                <option value="-">-</option>
                 <option value="14">14</option>
                 <option value="12">12</option>
                 <option value="11">11</option>
