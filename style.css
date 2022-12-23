@@ -178,7 +178,18 @@ tbody tr {
 /* Table body cell */
 tbody td {
   padding: 0.5rem 1rem;
-  text-align: left;
+  text-align: center;
   color: var(--color-text);
   white-space: nowrap;
+}
+
+/* First table body cell */
+tbody td:first-of-type {
+  text-align: left;
+}
+
+/* Assign table options */
+#assignedAttributesTable option {
+  background: var(--color-background);
+  color: var(--color-text);
 }

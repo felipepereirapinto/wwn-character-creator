@@ -57,51 +57,56 @@
 
         <tbody>
           <tr>
-            <td>STR</td>
+            <td>Strength</td>
             <td id="rolledStrengthValue" data-previous=""></td>
             <td id="rolledStrengthModifier"></td>
-            <td onclick="handleAttributeAssign('Strengh')" class="setAttributeTo14">
-              <input type="radio" name="attributeTo14" id="attributeStrengthTo14" />
+            <td class="setAttributeTo14">
+              <input onclick="setAttributeTo14('Strength')" type="radio" name="attributeTo14"
+                id="attributeStrengthTo14" />
             </td>
           </tr>
           <tr>
-            <td>DEX</td>
+            <td>Dexterity</td>
             <td id="rolledDexterityValue" data-previous=""></td>
             <td id="rolledDexterityModifier"></td>
-            <td onclick="handleAttributeAssign('Dexterity')" class="setAttributeTo14">
-              <input type="radio" name="attributeTo14" id="attributeDexterityTo14" />
+            <td class="setAttributeTo14">
+              <input onclick="setAttributeTo14('Dexterity')" type="radio" name="attributeTo14"
+                id="attributeDexterityTo14" />
             </td>
           </tr>
           <tr>
-            <td>CON</td>
+            <td>Constitution</td>
             <td id="rolledConstitutionValue" data-previous=""></td>
             <td id="rolledConstitutionModifier"></td>
-            <td onclick="handleAttributeAssign('Constitution')" class="setAttributeTo14">
-              <input type="radio" name="attributeTo14" id="attributeConstitutionTo14" />
+            <td class="setAttributeTo14">
+              <input onclick="setAttributeTo14('Constitution')" type="radio" name="attributeTo14"
+                id="attributeConstitutionTo14" />
             </td>
           </tr>
           <tr>
-            <td>INT</td>
+            <td>Intelligence</td>
             <td id="rolledIntelligenceValue" data-previous=""></td>
             <td id="rolledIntelligenceModifier"></td>
-            <td onclick="handleAttributeAssign('Intelligence')" class="setAttributeTo14">
-              <input type="radio" name="attributeTo14" id="attributeIntelligenceTo14" />
+            <td class="setAttributeTo14">
+              <input onclick="setAttributeTo14('Intelligence')" type="radio" name="attributeTo14"
+                id="attributeIntelligenceTo14" />
             </td>
           </tr>
           <tr>
-            <td>WIS</td>
+            <td>Wisdom</td>
             <td id="rolledWisdomValue" data-previous=""></td>
             <td id="rolledWisdomModifier"></td>
-            <td onclick="handleAttributeAssign('Wisdom')" class="setAttributeTo14">
-              <input type="radio" name="attributeTo14" id="attributeWisdomTo14" />
+            <td class="setAttributeTo14">
+              <input onclick="setAttributeTo14('Wisdom')" type="radio" name="attributeTo14" id="attributeWisdomTo14" />
             </td>
           </tr>
           <tr>
-            <td>CHA</td>
+            <td>Charisma</td>
             <td id="rolledCharismaValue" data-previous=""></td>
             <td id="rolledCharismaModifier"></td>
-            <td onclick="handleAttributeAssign('Charisma')" class="setAttributeTo14">
-              <input type="radio" name="attributeTo14" id="attributeCharismaTo14" />
+            <td class="setAttributeTo14">
+              <input onclick="setAttributeTo14('Charisma')" type="radio" name="attributeTo14"
+                id="attributeCharismaTo14" />
             </td>
           </tr>
         </tbody>
@@ -120,7 +125,7 @@
         <tbody>
           <!-- Inputs can only be in (14, 12, 11, 10, 9, 7) with no repetitions -->
           <tr id="assignedStrength">
-            <td>STR</td>
+            <td>Strength</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedStrength">
                 <option value="-">-</option>
@@ -135,7 +140,7 @@
             <td class="attributeModifier">-</td>
           </tr>
           <tr id="assignedDexterity">
-            <td>DEX</td>
+            <td>Dexterity</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedDexterity">
                 <option value="-">-</option>
@@ -150,7 +155,7 @@
             <td class="attributeModifier">-</td>
           </tr>
           <tr id="assignedConstitution">
-            <td>CON</td>
+            <td>Constitution</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedConstitution">
                 <option value="-">-</option>
@@ -165,7 +170,7 @@
             <td class="attributeModifier">-</td>
           </tr>
           <tr id="assignedIntelligence">
-            <td>INT</td>
+            <td>Intelligence</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedIntelligence">
                 <option value="-">-</option>
@@ -180,7 +185,7 @@
             <td class="attributeModifier">-</td>
           </tr>
           <tr id="assignedWisdom">
-            <td>WIS</td>
+            <td>Wisdom</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedWisdom">
                 <option value="-">-</option>
@@ -195,7 +200,7 @@
             <td class="attributeModifier">-</td>
           </tr>
           <tr id="assignedCharisma">
-            <td>CHA</td>
+            <td>Charisma</td>
             <td class="assignedAttributeValue">
               <select name="assignedAttribute" id="assignedCharisma">
                 <option value="-">-</option>
