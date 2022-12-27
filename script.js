@@ -1,6 +1,5 @@
 // Functions
 
-
 function setAttributeTo14(attribute) {
     // Get elements with rolled attributes values and modifiers
     const valueElement = document.getElementById(`rolled${attribute}Value`)
