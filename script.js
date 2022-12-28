@@ -1,4 +1,8 @@
+////////////////////////////////////////////////////////////////////////////////
 // Functions
+////////////////////////////////////////////////////////////////////////////////
+
+// Attribute functions
 
 function setAttributeTo14(attribute) {
     // Get elements with rolled attributes values and modifiers
@@ -121,11 +125,48 @@ function handleAttributeSelect(selectElement) {
     modifierElement.innerHTML = modifier
 }
 
+// Background functions
+
+function handleBackgroundChoice(background) {
+
+    const backgroundChoiceElements = document.querySelectorAll('.backgroundChoiceButton')
+
+    // If the choice was Random, select a random background
+    if (background === 'Random') {
+        // Remove active class from all elements
+        backgroundChoiceElements.forEach(element => element.classList.remove('active'))
+
+        // Get random background from list
+        const backgrounds = [
+            'Artisan', 'Barbarian', 'Carter', 'Courtesan', 'Criminal', 'Hunter', 'Laborer', 'Merchant', 'Noble', 'Nomad', 'Peasant', 'Performer', 'Physician', 'Priest', 'Sailor', 'Scholar', 'Slave', 'Soldier', 'Thug', 'Wanderer'
+        ]
+        const randomIndex = Math.floor(Math.random() * backgrounds.length)
+        background = backgrounds[randomIndex]
+
+        // Add active class to the selected element
+        document.getElementById(background).classList.add('active')
+
+        return
+    }
+
+    // Set or unset active class for the selected element
+    backgroundChoiceElements.forEach(element => {
+        if (element.id === background) {
+            element.classList.toggle('active')
+            return
+        }
+        element.classList.remove('active')
+    })
+}
+
+
+
 // Export functions to html using window object
 
 window.handleAttributeRoll = handleAttributeRoll
 window.handleAttributeAssign = handleAttributeAssign
 window.setAttributeTo14 = setAttributeTo14
+window.handleBackgroundChoice = handleBackgroundChoice
 
 // Set event listeners
 

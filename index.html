@@ -29,12 +29,9 @@
       <h2 class="subtitle">Attributes</h2>
 
       <p class="text">
-        Roll your six attributes in order or assign them from an array, using Strength, Dexterity, Constitution,
-        Intelligence, Wisdom, and Charisma. Attributes reflect the basic potential of your hero. Roll 3d6 six times and
-        assign them in order, or use an array of
-        <strong>14, 12, 11, 10, 9, 7</strong>
-        assigned as you wish. If you randomly roll your
-        scores you may then pick one attribute to change to a score of 14.
+        Roll your attributes in order, and optionally set one of them to 14,
+        <br>
+        Or assign them from the array <strong>14, 12, 11, 10, 9, 7</strong> as you wish.
       </p>
 
       <div class="buttonsContainer">
@@ -216,6 +213,89 @@
           </tr>
         </tbody>
       </table>
+
+    </section>
+
+    <!-- Step 4 - Background -->
+    <!-- Pick a background from the list -->
+    <!-- You gain the free skill at level-0 -->
+    <section class="backgroundSection">
+      <h2 class="subtitle">Background</h2>
+
+      <p class="text">
+        Choose one of the following backgrounds, or randomize it.
+      </p>
+
+      <div class="backgroundButtonsContainer">
+        <button id="Artisan" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Artisan')">
+          Artisan
+        </button>
+        <button id="Barbarian" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Barbarian')">
+          Barbarian
+        </button>
+        <button id="Carter" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Carter')">
+          Carter
+        </button>
+        <button id="Courtesan" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Courtesan')">
+          Courtesan
+        </button>
+        <button id="Criminal" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Criminal')">
+          Criminal
+        </button>
+        <button id="Hunter" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Hunter')">
+          Hunter
+        </button>
+        <button id="Laborer" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Laborer')">
+          Laborer
+        </button>
+        <button id="Merchant" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Merchant')">
+          Merchant
+        </button>
+        <button id="Noble" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Noble')">
+          Noble
+        </button>
+        <button id="Nomad" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Nomad')">
+          Nomad
+        </button>
+        <button id="Peasant" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Peasant')">
+          Peasant
+        </button>
+        <button id="Performer" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Performer')">
+          Performer
+        </button>
+        <button id="Physician" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Physician')">
+          Physician
+        </button>
+        <button id="Priest" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Priest')">
+          Priest
+        </button>
+        <button id="Sailor" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Sailor')">
+          Sailor
+        </button>
+        <button id="Scholar" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Scholar')">
+          Scholar
+        </button>
+        <button id="Slave" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Slave')">
+          Slave
+        </button>
+        <button id="Soldier" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Soldier')">
+          Soldier
+        </button>
+        <button id="Thug" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Thug')">
+          Thug
+        </button>
+        <button id="Wanderer" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Wanderer')">
+          Wanderer
+        </button>
+        <button id="Random" class="backgroundChoiceButton" onclick="handleBackgroundChoice('Random')">
+          Random
+        </button>
+      </div>
+
+      <div class="backgroundChoice">
+        <p class="text">
+          You have chosen the <span id="backgroundChoice"></span> background.
+        </p>
 
     </section>
 

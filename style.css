@@ -13,8 +13,6 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 16px;
-  font: inherit;
   vertical-align: baseline;
   background: var(--color-background);
   color: var(--color-text);
@@ -73,7 +71,7 @@ h1.title {
 
 /* Section */
 section {
-  padding: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 /* Subtitle */
@@ -98,7 +96,7 @@ section {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .button {
@@ -110,7 +108,7 @@ section {
   align-content: center;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  margin: 0.5rem;
+  margin-right: 1rem;
   cursor: pointer;
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
@@ -192,4 +190,48 @@ tbody td:first-of-type {
 #assignedAttributesTable option {
   background: var(--color-background);
   color: var(--color-text);
+}
+
+/* Background buttons container */
+.backgroundButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Background buttons */
+.backgroundChoiceButton {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  min-width: 100px;
+}
+
+.backgroundChoiceButton:hover {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+.backgroundChoiceButton:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Background choice button after clicking */
+.backgroundChoiceButton.active {
+  background: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(2px) scale(0.98);
 }
