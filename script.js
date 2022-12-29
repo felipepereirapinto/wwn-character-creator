@@ -1,3 +1,127 @@
+// Dictionary with background skills
+const backgroundsDict = {
+    Artisan: {
+        'free': 'Craft',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Barbarian: {
+        'free': 'Survive',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Carter: {
+        'free': 'Ride',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Courtesan: {
+        'free': 'Perform',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Criminal: {
+        'free': 'Sneak',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Hunter: {
+        'free': 'Shoot',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Laborer: {
+        'free': 'Work',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Merchant: {
+        'free': 'Trade',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Noble: {
+        'free': 'Lead',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Nomad: {
+        'free': 'Ride',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Peasant: {
+        'free': 'Exert',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Performer: {
+        'free': 'Perform',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Physician: {
+        'free': 'Heal',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Priest: {
+        'free': 'Pray',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Sailor: {
+        'free': 'Sail',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Scholar: {
+        'free': 'Know',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Slave: {
+        'free': 'Sneak',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Soldier: {
+        'free': 'Any Combat',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Thug: {
+        'free': 'Any Combat',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+    Wanderer: {
+        'free': 'Survive',
+        'quick': ['', ''],
+        'growth': ['', '', '', '', '', ''],
+        'learning': ['', '', '', '', '', '', '', ''],
+    },
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +219,6 @@ function handleAttributeAssign() {
 
     // Get all select elements
     const selectElements = document.querySelectorAll('#assignedAttributesTable select')
-    console.log(selectElements)
 }
 
 function handleAttributeSelect(selectElement) {
@@ -103,7 +226,6 @@ function handleAttributeSelect(selectElement) {
     const value = selectElement.value
     const modifier = getModifier(value)
     const currentId = selectElement.id
-    console.log(currentId, value, modifier)
 
     // Get all select elements and look for repeated values
     const selectElements = document.querySelectorAll('#assignedAttributesTable select')
@@ -128,38 +250,58 @@ function handleAttributeSelect(selectElement) {
 // Background functions
 
 function handleBackgroundChoice(background) {
+    
 
+    // Elements with background choices and description
     const backgroundChoiceElements = document.querySelectorAll('.backgroundChoiceButton')
-
+    const backgroundDescriptionElement = document.getElementById('backgroundDescription')
+   
     // If the choice was Random, select a random background
     if (background === 'Random') {
-        // Remove active class from all elements
+        // Remove active class from all background elements
         backgroundChoiceElements.forEach(element => element.classList.remove('active'))
 
-        // Get random background from list
-        const backgrounds = [
-            'Artisan', 'Barbarian', 'Carter', 'Courtesan', 'Criminal', 'Hunter', 'Laborer', 'Merchant', 'Noble', 'Nomad', 'Peasant', 'Performer', 'Physician', 'Priest', 'Sailor', 'Scholar', 'Slave', 'Soldier', 'Thug', 'Wanderer'
-        ]
-        const randomIndex = Math.floor(Math.random() * backgrounds.length)
-        background = backgrounds[randomIndex]
+        // Get random background from the dictionary
+        const randomIndex = Math.floor(Math.random() * Object.keys(backgroundsDict).length)
+        background = Object.keys(backgroundsDict)[randomIndex]
 
-        // Add active class to the selected element
+        // Set background skill and description
+        const skill = backgroundsDict[background]['free']
+        const description = `The ${background} background gives you the ${skill} skill at level-0.`
+        backgroundDescriptionElement.innerHTML = description
+
+        // Add active class to the selected background and description
         document.getElementById(background).classList.add('active')
+        backgroundDescriptionElement.classList.add('active')
 
         return
     }
 
-    // Set or unset active class for the selected element
-    backgroundChoiceElements.forEach(element => {
-        if (element.id === background) {
-            element.classList.toggle('active')
-            return
-        }
-        element.classList.remove('active')
-    })
+    // If the choice was not Random, toggle the background
+
+    // Check if background is already active
+    const backgroundElement = document.getElementById(background)
+    if (backgroundElement.classList.contains('active')) {
+        // If background is already active, remove active class
+        backgroundElement.classList.remove('active')
+        backgroundDescriptionElement.classList.remove('active')
+        return
+    }
+
+    // If not, remove any previously active background
+    backgroundChoiceElements.forEach(element => element.classList.remove('active'))
+
+    // Set background skill and description
+    const skill = backgroundsDict[background]['free']
+    const description = `The ${background} background gives you the ${skill} skill at level-0.`
+    backgroundDescriptionElement.innerHTML = description
+
+    // Add active class to the selected background and description
+    backgroundElement.classList.add('active')
+    backgroundDescriptionElement.classList.add('active')
+
+    return
 }
-
-
 
 // Export functions to html using window object
 
@@ -168,7 +310,9 @@ window.handleAttributeAssign = handleAttributeAssign
 window.setAttributeTo14 = setAttributeTo14
 window.handleBackgroundChoice = handleBackgroundChoice
 
-// Set event listeners
+////////////////////////////////////////////////////////////////////////////////
+// Event listeners
+////////////////////////////////////////////////////////////////////////////////
 
 // Get modifier when a select element is changed
 const selectElements = document.querySelectorAll('#assignedAttributesTable select')

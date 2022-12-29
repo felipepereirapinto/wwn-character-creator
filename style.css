@@ -235,3 +235,11 @@ tbody td:first-of-type {
   color: var(--color-background);
   transform: translateY(2px) scale(0.98);
 }
+
+#backgroundDescription {
+  display: none;
+}
+
+#backgroundDescription.active {
+  display: flex;
+}
